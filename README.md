@@ -1,38 +1,47 @@
-# Alzheimer’s Language Feature Analysis
+# Linguistic Feature Analysis for Alzheimer’s Detection
 
-## Overview
-This project analyzes language patterns in speech transcripts from healthy individuals and patients with Alzheimer’s disease. The goal is to quantify interpretable linguistic features and examine how they differ between groups.
+## Problem
+Alzheimer’s disease affects language production, often leading to reduced vocabulary
+and increased repetition. Early linguistic markers could support non-invasive screening
+and research into cognitive decline.
 
-This project is intended for research and educational purposes only and is not a diagnostic tool.
+## Dataset
+The dataset consists of de-identified text samples labeled as:
+- `alzheimer`
+- `control`
 
-## Motivation
-Language degradation is a well-documented early indicator of Alzheimer’s disease. By measuring simple and interpretable linguistic features such as vocabulary diversity and repetition, this project aims to support research into non-invasive cognitive screening methods.
+Each sample represents a speech or language transcription.
+
+## Approach
+We extract simple, interpretable linguistic features from each text sample:
+
+- **Word Count** – total number of words
+- **Vocabulary Diversity** – ratio of unique words to total words
+- **Repetition Score** – proportion of the most repeated word
+
+These features are compared between Alzheimer’s and control groups.
 
 ## Methods
-We extract and analyze the following features from text transcripts:
-- Word count
-- Vocabulary diversity (unique words divided by total words)
-- Repetition score (frequency of the most common word)
-
-Group-level comparisons and visualizations are used to analyze differences between healthy controls and Alzheimer’s patients.
+- Tokenization using whitespace splitting
+- Feature extraction using Python
+- Group-wise statistical aggregation
+- Visualization using boxplots
 
 ## Results
-Initial analysis demonstrates measurable differences in linguistic features between the two groups, particularly in vocabulary diversity and repetition patterns.
+The analysis shows noticeable differences between groups:
+- Alzheimer’s samples tend to have lower vocabulary diversity
+- Repetition scores are higher compared to controls
+
+This supports existing linguistic findings in Alzheimer’s research.
 
 ## Limitations
-- Small sample size
-- Text-only analysis
-- No clinical diagnosis is performed
-- Results depend on dataset quality
-
-## Ethical Considerations
-All data used in this project is de-identified and publicly available. This work is intended solely for research and educational purposes.
-
-## Future Work
-- Statistical significance testing
-- Larger and more diverse datasets
-- Longitudinal analysis of language changes
-- Integration of additional modalities such as speech timing features
+- Basic lexical features only
+- No syntactic or semantic modeling
+- Not intended for clinical diagnosis
 
 ## Reproducibility
-All analysis code is contained in `analysis.ipynb`. Required dependencies are listed in `requirements.txt`.
+To run the analysis:
+
+```bash
+pip install -r requirements.txt
+python analysis.py
